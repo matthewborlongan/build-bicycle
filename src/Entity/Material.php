@@ -8,6 +8,7 @@ interface Material {
      * function to set the material for some part of a vehicle
      *
      * @param String $material
+     * @throws \IllegalArgumentException
      * @return self
      */
     public function setMaterial(String $material);
@@ -16,7 +17,6 @@ interface Material {
     /**
      * gets the material of the vehicle part
      * 
-     * @throws \IllegalArgumentException
      * @return String
      */
     public function getMaterial(): String;
