@@ -5,3 +5,8 @@ This is a command line application that allows the user to customize a bicycle t
 
 ## Technologies
 The application was developed using Symfony 6 and PHP 8.1.5. It uses Symfony's Command class to generate the CLI. In an actual application, I would have used Doctrine ORM and stored data in some back end database like MySQL or MongoDB. To minimize complexity and to ensure compatibility with all platforms, I opted to just use the CLI and vanilla PHP objects in lieu of Doctrine entities.
+
+## Running the Program
+To run this program, enter the project root directory and run "php bin/console app:build-bike"
+
+Then simply follow the prompts. If the code is having issue, you may need to run composer install.
