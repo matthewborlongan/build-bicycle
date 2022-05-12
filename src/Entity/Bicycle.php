@@ -8,7 +8,7 @@ use App\Entity\HandleBar;
 use App\Entity\Pedal;
 use App\Entity\Brake;
 
-class Bicycle extends Vehicle {
+class Bicycle {
     private Wheel $frontWheel;
     private Wheel $rearWheel;
     private Frame $frame;
@@ -17,11 +17,18 @@ class Bicycle extends Vehicle {
     private Pedal $leftPeddle;
     private Pedal $rightPedal;
     private Brake $frontBrake;
-    private Brake $rightBrake;
+    private Brake $rearBrake;
 
-    public function __construct(float $length, float $width, float $height, float $weight) 
+    public function __construct(Frame $frame, HandleBar $handleBar, Wheel $wheel, Pedal $pedal, Brake $brake) 
     {
-        parent::__construct($length, $width, $height, $weight);
+        $this->frame = $frame;
+        $this->handleBar = $handleBar;
+        $this->frontWheel = $wheel;
+        $this->backWheel = $wheel;
+        $this->leftPeddle = $pedal;
+        $this->rightPeddle = $pedal;
+        $this->frontBrake = $brake;
+        $this->rearBrake = $brake;
     }
 
     /**
@@ -205,24 +212,24 @@ class Bicycle extends Vehicle {
     }
 
     /**
-     * Get the value of rightBrake
+     * Get the value of rearBrake
      * 
      * @return Brake
      */ 
-    public function getRightBrake(): Brake
+    public function getRearBrake(): Brake
     {
-        return $this->rightBrake;
+        return $this->rearBrake;
     }
 
     /**
-     * Set the value of rightBrake
+     * Set the value of rearBrake
      *
-     * @param Brake $rightBrake
+     * @param Brake $rearBrake
      * @return  self
      */ 
-    public function setRightBrake(Brake $rightBrake): self
+    public function setRearBrake(Brake $rearBrake): self
     {
-        $this->rightBrake = $rightBrake;
+        $this->rearBrake = $rearBrake;
 
         return $this;
     }
