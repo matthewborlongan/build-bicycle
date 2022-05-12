@@ -14,7 +14,7 @@ class Bicycle {
     private Frame $frame;
     private Seat $seat; 
     private HandleBar $handleBar;
-    private Pedal $leftPeddle;
+    private Pedal $leftPedal;
     private Pedal $rightPedal;
     private Brake $frontBrake;
     private Brake $rearBrake;
@@ -25,10 +25,27 @@ class Bicycle {
         $this->handleBar = $handleBar;
         $this->frontWheel = $wheel;
         $this->backWheel = $wheel;
-        $this->leftPeddle = $pedal;
-        $this->rightPeddle = $pedal;
+        $this->leftPedal = $pedal;
+        $this->rightPedal = $pedal;
         $this->frontBrake = $brake;
         $this->rearBrake = $brake;
+    }
+
+    /**
+     * returns message containing info about Bicycle instance
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return 
+            'Frame: ' . $this->frame->getColor() . ' made of ' . $this->frame->getMaterial() . ' weighing ' . $this->frame->getWeight() . '\n' .  
+            'Wheels: ' . $this->frontWheel->getColor() . ' with a diameter of ' . $this->frontWheel->getDiameter() . ' weighing ' . $this->frontWheel->getWeight() . '\n' . 
+            'Pedals: ' . $this->leftPedal->getColor() . ' with length of ' . $this->leftPedal->getLength() . ' and width of ' . $this->leftPedal->getLength() . ' weighing '. $this->leftPedal->getWeight() . '\n' . 
+            'Brakes: ' . $this->frontBrake->getColor() . ' ' . $this->frontBrake->getType() . ' brakes weighing ' . $this->frontBrake->getWeight() . '\n' . 
+            'Seat: ' . $this->seat->getColor() . ' ' . $this->seat->getSeatGender() . ' seat weighing ' . $this->getWeight() . '\n' . 
+            'Handle Bar: ' . $this->handleBar->getColor() . ' made of ' . $this->handleBar->getMaterial() . ' weighing ' . $this->handleBar->getWeight() . 'n';
+
     }
 
     /**
@@ -144,24 +161,24 @@ class Bicycle {
     }
 
     /**
-     * Get the value of leftPeddle
+     * Get the value of leftPedal
      * 
      * @return Pedal
      */ 
-    public function getLeftPeddle(): Pedal
+    public function getLeftPedal(): Pedal
     {
-        return $this->leftPeddle;
+        return $this->leftPedal;
     }
 
     /**
-     * Set the value of leftPeddle
+     * Set the value of leftPedal
      *
-     * @param Pedal $leftPeddle
+     * @param Pedal $leftPedal
      * @return  self
      */ 
-    public function setLeftPeddle(Pedal $leftPeddle): self
+    public function setLeftPeddle(Pedal $leftPedal): self
     {
-        $this->leftPeddle = $leftPeddle;
+        $this->leftPedal = $leftPedal;
 
         return $this;
     }

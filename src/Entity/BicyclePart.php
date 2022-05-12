@@ -10,7 +10,7 @@ class BicyclePart {
      * @param String $color
      * @param float $weight
      */
-    protected function __construct(String $color, float $weight)
+    public function __construct(String $color, float $weight)
     {
         $this->color = $color;
         $this->weight = $weight;
@@ -21,7 +21,7 @@ class BicyclePart {
      * 
      * @return String
      */ 
-    protected function getColor(): String
+    public function getColor(): String
     {
         return $this->color;
     }
@@ -31,7 +31,7 @@ class BicyclePart {
      *
      * @return  self
      */ 
-    protected function setColor($color): self
+    public function setColor($color): self
     {
         $this->color = $color;
 
@@ -42,7 +42,7 @@ class BicyclePart {
      * Get the value of weight
      * @return float
      */ 
-    protected function getWeight(): float
+    public function getWeight(): float
     {
         return $this->weight;
     }
@@ -52,7 +52,7 @@ class BicyclePart {
      *
      * @return  self
      */ 
-    protected function setWeight($weight): self
+    public function setWeight($weight): self
     {
         $this->weight = $weight;
 

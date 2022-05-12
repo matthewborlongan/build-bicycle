@@ -13,6 +13,17 @@ class Brake extends BicyclePart {
         parent::__construct($color, $weight);    
     }
 
+
+    /**
+     * gets brake type
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
     /**
      * sets brake type
      *

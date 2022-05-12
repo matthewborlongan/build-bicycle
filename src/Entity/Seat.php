@@ -4,15 +4,15 @@ namespace App\Entity;
 use App\Entity\BicyclePart;
 
 class Seat extends BicyclePart {
-    private int $seatGender; 
+    private string $seatGender; 
 
     /**
      *
-     * @param int $seatGender
+     * @param string $seatGender
      * @param String $color
      * @param float $weight
      */
-    public function __construct(int $seatGender, String $color, float $weight)
+    public function __construct(string $seatGender, String $color, float $weight)
     {
         $this->setSeatGender($seatGender);
         parent::__construct($color, $weight);
@@ -21,9 +21,9 @@ class Seat extends BicyclePart {
     /**
      * Get the value of seatGender
      * 
-     * @return int
+     * @return string
      */ 
-    public function getSeatGender(): int
+    public function getSeatGender(): string
     {
         return $this->seatGender;
     }
@@ -31,13 +31,13 @@ class Seat extends BicyclePart {
     /**
      * Set the value of seatGender
      *
-     * @param int $seatGender
+     * @param string $seatGender
      * @throws InvalidArgumentException
      * @return  self
      */ 
-    public function setSeatGender(int $seatGender): self
+    public function setSeatGender(string $seatGender): self
     {
-        if($seatGender === 1 or $seatGender === 0) {
+        if($seatGender === 'female' or $seatGender === 'male') {
             $this->seatGender = $seatGender;
             return $this;
             
