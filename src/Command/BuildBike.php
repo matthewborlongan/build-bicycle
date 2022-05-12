@@ -10,7 +10,6 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 
 // custom defined classes
 use App\Entity\Bicycle;
-use App\Entity\BicyclePart;
 use App\Entity\Frame;
 use App\Entity\HandleBar;
 use App\Entity\Wheel;
@@ -18,7 +17,6 @@ use App\Entity\Seat;
 use App\Entity\Pedal;
 use App\Entity\Brake;
 use App\Entity\Material;
-use InvalidArgumentException;
 
 class BuildBike extends Command
 {
@@ -31,7 +29,7 @@ class BuildBike extends Command
         'color' => 'What color do you want this part to be? ',
         'weight' => 'How heavy is this part in lbs? ',
         'material' => 'What material is this part made of? ',
-        'wheel' => 'What is the diameter of your bicycle\'s wheel? ',
+        'wheel' => 'What is the diameter of your bicycle\'s wheel in inches? ',
         'pedalLength' => 'What is the length of the pedal in inches? ',
         'pedalWidth' => 'What is the width of the pedal in inches? ',
         'seat' => 'Does your bike require a male or female seat? ',
@@ -87,7 +85,7 @@ class BuildBike extends Command
                     $components = array();
                     try {
                         $newBicycle = $this->buildBicycle($input, $output, $helper, $components);
-                        $name = $helper->ask($input, $output, new Question('What is the name of your new bicycle?'));
+                        $name = $helper->ask($input, $output, new Question('What is the name of your new bicycle? '));
                         $this->bikes[$name] = $newBicycle;
                         
                     } catch (\Exception $e) {
@@ -100,20 +98,23 @@ class BuildBike extends Command
                         $output->writeln('You have not created any bikes yet.');
 
                     } else {
-                        foreach($this->bikes as $bike) {
-                            $bike->toString();
+                        foreach($this->bikes as $bikeName => $bike) {
+                            $output->writeln(PHP_EOL . $bikeName);
+                            $output->writeln('-----------------------');
+                            $output->writeln($bike->toString());
                         }
                     }
                     
                     break;
                 
+                case 'Quit':
+                    return static::SUCCESS;
+                
                 default:
-                    throw new InvalidArgumentException('Unrecognized option of ' . $userAction . ' provided');
+                    throw new \InvalidArgumentException('Unrecognized option of ' . $userAction . ' provided');
                     break;
             }
         }
-
-        return static::SUCCESS;
     }
 
 
@@ -167,7 +168,8 @@ class BuildBike extends Command
                 $components['handleBar'],
                 $components['wheel'],
                 $components['pedal'],
-                $components['brake']
+                $components['brake'],
+                $components['seat']
             );
 
         $components = array(); // clear components array if bike creation successful

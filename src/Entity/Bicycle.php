@@ -19,7 +19,7 @@ class Bicycle {
     private Brake $frontBrake;
     private Brake $rearBrake;
 
-    public function __construct(Frame $frame, HandleBar $handleBar, Wheel $wheel, Pedal $pedal, Brake $brake) 
+    public function __construct(Frame $frame, HandleBar $handleBar, Wheel $wheel, Pedal $pedal, Brake $brake, Seat $seat) 
     {
         $this->frame = $frame;
         $this->handleBar = $handleBar;
@@ -29,6 +29,7 @@ class Bicycle {
         $this->rightPedal = $pedal;
         $this->frontBrake = $brake;
         $this->rearBrake = $brake;
+        $this->seat = $seat;
     }
 
     /**
@@ -39,12 +40,12 @@ class Bicycle {
     public function toString(): string
     {
         return 
-            'Frame: ' . $this->frame->getColor() . ' made of ' . $this->frame->getMaterial() . ' weighing ' . $this->frame->getWeight() . '\n' .  
-            'Wheels: ' . $this->frontWheel->getColor() . ' with a diameter of ' . $this->frontWheel->getDiameter() . ' weighing ' . $this->frontWheel->getWeight() . '\n' . 
-            'Pedals: ' . $this->leftPedal->getColor() . ' with length of ' . $this->leftPedal->getLength() . ' and width of ' . $this->leftPedal->getLength() . ' weighing '. $this->leftPedal->getWeight() . '\n' . 
-            'Brakes: ' . $this->frontBrake->getColor() . ' ' . $this->frontBrake->getType() . ' brakes weighing ' . $this->frontBrake->getWeight() . '\n' . 
-            'Seat: ' . $this->seat->getColor() . ' ' . $this->seat->getSeatGender() . ' seat weighing ' . $this->seat->getWeight() . '\n' . 
-            'Handle Bar: ' . $this->handleBar->getColor() . ' made of ' . $this->handleBar->getMaterial() . ' weighing ' . $this->handleBar->getWeight() . 'n';
+            'Frame: ' . $this->frame->getColor() . ' made of ' . $this->frame->getMaterial() . ', weighing ' . $this->frame->getWeight() . ' lbs ' . PHP_EOL .  
+            'Wheels: ' . $this->frontWheel->getColor() . ' with a diameter of ' . $this->frontWheel->getDiameter() . ' inches, weighing ' . $this->frontWheel->getWeight() . ' lbs ' . PHP_EOL . 
+            'Pedals: ' . $this->leftPedal->getColor() . ' with length of ' . $this->leftPedal->getLength() . ' inches and width of ' . $this->leftPedal->getLength() . ' inches, weighing '. $this->leftPedal->getWeight() . ' lbs ' . PHP_EOL . 
+            'Brakes: ' . $this->frontBrake->getColor() . ' ' . $this->frontBrake->getType() . ' brakes, weighing ' . $this->frontBrake->getWeight() . ' lbs ' . PHP_EOL . 
+            'Seat: ' . $this->seat->getColor() . ' ' . $this->seat->getSeatGender() . ' seat, weighing ' . $this->seat->getWeight() . ' lbs ' . PHP_EOL . 
+            'Handle Bar: ' . $this->handleBar->getColor() . ' made of ' . $this->handleBar->getMaterial() . ', weighing ' . $this->handleBar->getWeight() . ' lbs ' . PHP_EOL;
 
     }
 
