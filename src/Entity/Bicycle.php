@@ -43,7 +43,7 @@ class Bicycle {
             'Wheels: ' . $this->frontWheel->getColor() . ' with a diameter of ' . $this->frontWheel->getDiameter() . ' weighing ' . $this->frontWheel->getWeight() . '\n' . 
             'Pedals: ' . $this->leftPedal->getColor() . ' with length of ' . $this->leftPedal->getLength() . ' and width of ' . $this->leftPedal->getLength() . ' weighing '. $this->leftPedal->getWeight() . '\n' . 
             'Brakes: ' . $this->frontBrake->getColor() . ' ' . $this->frontBrake->getType() . ' brakes weighing ' . $this->frontBrake->getWeight() . '\n' . 
-            'Seat: ' . $this->seat->getColor() . ' ' . $this->seat->getSeatGender() . ' seat weighing ' . $this->getWeight() . '\n' . 
+            'Seat: ' . $this->seat->getColor() . ' ' . $this->seat->getSeatGender() . ' seat weighing ' . $this->seat->getWeight() . '\n' . 
             'Handle Bar: ' . $this->handleBar->getColor() . ' made of ' . $this->handleBar->getMaterial() . ' weighing ' . $this->handleBar->getWeight() . 'n';
 
     }
