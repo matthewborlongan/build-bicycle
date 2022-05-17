@@ -9,4 +9,4 @@ The application was developed using Symfony 6 and PHP 8.1.5. It uses Symfony's C
 ## Running the Program
 To run this program, enter the project root directory and run "php bin/console app:build-bike"
 
-Then simply follow the prompts. If the code is having issue, you may need to run composer install.
+Then simply follow the prompts. If the code is having issue, you may need to run "composer install" or run "symfony check:requirements" for any missing dependencies. 
